@@ -1,0 +1,8 @@
+{
+  "experiment_name": "baseline1_global_mean",
+  "rmse": 0.938526,
+  "r2_score": 0.885639,
+  "pearson_r": 0.941091,
+  "num_samples_val": 3038,
+  "num_proteins": 4422
+}

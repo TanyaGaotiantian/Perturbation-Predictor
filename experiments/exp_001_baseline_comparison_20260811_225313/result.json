@@ -1,0 +1,14 @@
+{
+  "experiment_name": "baseline2_control_backoff",
+  "rmse": 0.905062,
+  "r2_score": 0.893648,
+  "pearson_r": 0.945452,
+  "num_samples_val": 3038,
+  "num_proteins": 4422,
+  "level_distribution": {
+    "level_1_strict": 1222,
+    "level_2_strain": 0,
+    "level_3_global_ctrl": 1816,
+    "level_4_global_mean": 0
+  }
+}

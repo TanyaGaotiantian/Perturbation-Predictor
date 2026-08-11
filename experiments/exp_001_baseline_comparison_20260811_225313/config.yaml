@@ -1,0 +1,27 @@
+experiment_name: baseline_comparison
+timestamp: '20260811_225313'
+data_paths:
+  metadata_train_val: WAYB_WAYC_metadata_train_val(1).csv
+  metadata_test: WAYB_WAYC_metadata_test(1).csv
+  proteome_train_val: WAYB_WAYC_proteome_raw_train_val.csv
+  proteome_test: WAYB_WAYC_proteome_raw_test.csv
+algorithms:
+- 'Baseline 1: Global Protein Mean'
+- 'Baseline 2: Control Baseline with 4-level Backoff'
+filtering:
+  max_missing_rate: 0.8
+  filter_on_train_only: true
+normalization: log2 transform
+control_chemicals:
+- DMSO
+- Water
+- Quality Control
+backoff_levels:
+  level_1: strain + medium + temperature (strict match)
+  level_2: strain only
+  level_3: global control mean
+  level_4: global protein mean (Baseline 1 fallback)
+evaluation_metrics:
+- RMSE
+- R2 Score
+- Pearson Correlation
