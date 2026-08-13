@@ -1,0 +1,36 @@
+{
+  "num_proteins": 4422,
+  "num_strains_vocab": 7,
+  "num_medium_vocab": 3,
+  "num_temp_vocab": 3,
+  "num_chemicals_vocab": 58,
+  "encoder_latent_dim": 512,
+  "mlp_input_dim": 512,
+  "protein_mlp_input_dim": 8844,
+  "fusion_input_dim": 640,
+  "total_params": 25611814,
+  "train_mask_prob": 0.15,
+  "val_no_mask_metrics": {
+    "rmse": 0.938381,
+    "r2": 0.885674,
+    "pearson_r": 0.941278
+  },
+  "val_mask_15_metrics": {
+    "rmse": 0.938382,
+    "r2": 0.885674,
+    "pearson_r": 0.941278
+  },
+  "val_mask_30_metrics": {
+    "rmse": 0.938381,
+    "r2": 0.885674,
+    "pearson_r": 0.941278
+  },
+  "split_anti_leakage": {
+    "train ∩ val_chem_only_chemicals": 0,
+    "train ∩ test_chem_only_chemicals": 0,
+    "train ∩ val_both_chemicals": 0,
+    "train ∩ test_both_chemicals": 0
+  },
+  "epochs": 3,
+  "train_time_sec": 116.98
+}
