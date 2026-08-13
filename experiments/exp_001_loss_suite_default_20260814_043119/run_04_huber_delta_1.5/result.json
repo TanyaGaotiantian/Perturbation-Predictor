@@ -1,0 +1,50 @@
+{
+  "status": "ok",
+  "loss_name": "huber",
+  "loss_tag": "Huber(delta=1.5)",
+  "huber_delta": 1.5,
+  "smoothl1_beta": 1.0,
+  "epochs": 3,
+  "batch_size": 64,
+  "lr": 0.0003,
+  "seed": 42,
+  "train_mask_prob": 0.15,
+  "num_proteins": 4422,
+  "num_train": 5920,
+  "num_val": 3038,
+  "filter_missing_rate": 0.8,
+  "model_params": 25611814,
+  "history": {
+    "train_loss": [
+      19.186132400266587,
+      1.4169815477504526,
+      0.49591646015003166
+    ],
+    "val_rmse": [
+      5.425596714019775,
+      0.9504250884056091,
+      0.8733565211296082
+    ],
+    "val_r2": [
+      -2.821925401687622,
+      0.8827202320098877,
+      0.9009692072868347
+    ],
+    "val_pearson": [
+      0.10142955183982849,
+      0.940217137336731,
+      0.9496716260910034
+    ]
+  },
+  "best_val": {
+    "epoch": 3,
+    "rmse": 0.8733565211296082,
+    "r2": 0.9009692072868347,
+    "pearson": 0.9496716260910034,
+    "num_valid": 11521736
+  },
+  "train_time_sec": 107.72,
+  "curve_plot": "J:\\Perturbation-Predictor\\experiments\\exp_001_loss_suite_default_20260814_043119\\run_04_huber_delta_1.5\\training_curve.png",
+  "run_dir": "J:\\Perturbation-Predictor\\experiments\\exp_001_loss_suite_default_20260814_043119\\run_04_huber_delta_1.5",
+  "log_path": "J:\\Perturbation-Predictor\\experiments\\exp_001_loss_suite_default_20260814_043119\\run_04_huber_delta_1.5\\log.txt"
+}

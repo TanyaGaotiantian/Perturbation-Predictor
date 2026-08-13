@@ -1,0 +1,95 @@
+{
+  "report_name": "loss_experiment_unified_report",
+  "created_at": "2026-08-14T04:55:00",
+  "device": "cpu",
+  "fixed_hparams": {
+    "epochs": 3,
+    "batch_size": 64,
+    "lr": 0.0003,
+    "train_mask_prob": 0.15,
+    "seed": 42,
+    "num_proteins": 4422,
+    "num_train": 5920,
+    "num_val": 3038,
+    "num_valid": 11521736
+  },
+  "source_summaries": [
+    "experiments/exp_001_loss_suite_default_20260814_043119/summary.json",
+    "experiments/exp_001_single_smoothl1_20260814_044450/summary.json",
+    "experiments/exp_001_single_smoothl1_20260814_044723/summary.json"
+  ],
+  "runs": [
+    {
+      "loss_tag": "Huber(delta=1.0)",
+      "rmse": 0.8668003082275391,
+      "r2": 0.902450442314148,
+      "pearson": 0.9500014781951904,
+      "rank_by_rmse": 1,
+      "run_dir": "experiments/exp_001_loss_suite_default_20260814_043119/run_03_huber_delta_1.0"
+    },
+    {
+      "loss_tag": "SmoothL1(beta=1.0)",
+      "rmse": 0.8668003082275391,
+      "r2": 0.902450442314148,
+      "pearson": 0.9500014781951904,
+      "rank_by_rmse": 1,
+      "run_dir": "experiments/exp_001_loss_suite_default_20260814_043119/run_06_smoothl1_beta_1.0"
+    },
+    {
+      "loss_tag": "L1",
+      "rmse": 0.8716945052146912,
+      "r2": 0.9013457298278809,
+      "pearson": 0.9495316743850708,
+      "rank_by_rmse": 3,
+      "run_dir": "experiments/exp_001_loss_suite_default_20260814_043119/run_02_l1"
+    },
+    {
+      "loss_tag": "SmoothL1(beta=1.5)",
+      "rmse": 0.8728951811790466,
+      "r2": 0.9010738134384155,
+      "pearson": 0.9497239589691162,
+      "rank_by_rmse": 4,
+      "run_dir": "experiments/exp_001_single_smoothl1_20260814_044450/run_01_smoothl1_beta_1.5"
+    },
+    {
+      "loss_tag": "Huber(delta=1.5)",
+      "rmse": 0.8733565211296082,
+      "r2": 0.9009692072868347,
+      "pearson": 0.9496716260910034,
+      "rank_by_rmse": 5,
+      "run_dir": "experiments/exp_001_loss_suite_default_20260814_043119/run_04_huber_delta_1.5"
+    },
+    {
+      "loss_tag": "Huber(delta=2.0)",
+      "rmse": 0.9073513150215149,
+      "r2": 0.8931097388267517,
+      "pearson": 0.9466221332550049,
+      "rank_by_rmse": 6,
+      "run_dir": "experiments/exp_001_loss_suite_default_20260814_043119/run_05_huber_delta_2.0"
+    },
+    {
+      "loss_tag": "SmoothL1(beta=2.0)",
+      "rmse": 0.9307109713554382,
+      "r2": 0.8875351548194885,
+      "pearson": 0.9447689056396484,
+      "rank_by_rmse": 7,
+      "run_dir": "experiments/exp_001_single_smoothl1_20260814_044723/run_01_smoothl1_beta_2.0"
+    },
+    {
+      "loss_tag": "MSE",
+      "rmse": 0.939595103263855,
+      "r2": 0.885377824306488,
+      "pearson": 0.941055178642273,
+      "rank_by_rmse": 8,
+      "run_dir": "experiments/exp_001_loss_suite_default_20260814_043119/run_01_mse"
+    }
+  ],
+  "best_by_rmse": [
+    "Huber(delta=1.0)",
+    "SmoothL1(beta=1.0)"
+  ],
+  "notes": [
+    "Only core experiments were added: SmoothL1 beta=1.5 and beta=2.0.",
+    "All other settings are fixed and unchanged."
+  ]
+}
