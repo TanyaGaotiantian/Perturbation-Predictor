@@ -1,0 +1,136 @@
+==========================================================================================
+TABLE 1: Main Results — All Methods (val set, 4 core metrics)
+==========================================================================================
+Method                 RMSE(↓)    R²(↑)      MAE(↓)     Pearson(↑) Params      
+--------------------------------------------------------------------------
+MLP (baseline)         0.8218     0.9123     0.6048     0.9553     26,363,462  
+MLP+R                  0.8093     0.9150     0.5945     0.9566     26,367,884  
+Hadamard (strain⊙drug) 0.8337     0.9098     0.6113     0.9539     26,412,646  
+Interaction MLP        0.8248     0.9117     0.6049     0.9548     26,659,238  
+
+==========================================================================================
+TABLE 2: Progressive Ablation (MLP → R → L+R → C+L+R → C+L+R+P)
+==========================================================================================
+Variant            Components                   RMSE(↓)    R²(↑)      MAE(↓)     Pearson(↑)
+--------------------------------------------------------------------------------------
+MLP                base                         0.8218     0.9123     0.6048     0.9553    
++R                 Residual                     0.8093     0.9150     0.5945     0.9566    
+L+R                Latent + Residual            0.9136     0.8916     0.6847     0.9445    
+C+L+R              CrossAttn + L + R            0.9331     0.8870     0.7069     0.9421    
+C+L+R+P            CrossAttn+L+R+Prior          0.9338     0.8868     0.7076     0.9420    
+
+Best ablation variant: +R (Residual) — RMSE=0.8093
+
+==========================================================================================
+TABLE 3: OOD Evaluation — Per-Split RMSE (from conditional_eval, 4 model variants)
+==========================================================================================
+Split                R              L+R            C+L+R          C+L+R+P       
+val_seen             0.7945         0.8518         0.8784         0.8794        
+val_strain_only      0.7815         0.8419         0.8768         0.8773        
+val_chem_only        0.8811         0.9572         1.0042         1.0045        
+val_both             0.8808         0.9437         0.9884         0.9884        
+val_time             0.7945         0.8518         0.8784         0.8794        
+
+Split                R²(R)          R²(L+R)        R²(C+L+R)      R²(C+L+R+P)   
+val_seen             0.9182         0.9060         0.9000         0.8997        
+val_strain_only      0.9201         0.9073         0.8994         0.8993        
+val_chem_only        0.9000         0.8820         0.8701         0.8701        
+val_both             0.9002         0.8854         0.8743         0.8743        
+val_time             0.9182         0.9060         0.9000         0.8997        
+
+==========================================================================================
+TABLE 4: Cross-dataset Transfer Learning (L6: WAYB pretrain → WAYC finetune)
+==========================================================================================
+Method          RMSE(↓)    R²(↑)      MAE(↓)     Pearson(↑)
+-------------------------------------------------------
+scratch         0.6728     0.4770     0.5015     0.6930    
+pretrained      0.6611     0.4951     0.4902     0.7069    
+
+ΔRMSE = +0.0117 (+1.74%) — pretrained BETTER
+
+Per-Split Transfer Comparison (RMSE):
+Split                scratch      pretrained   ΔRMSE      Winner    
+----------------------------------------------------------------
+val_both             0.7043       0.6977       +0.0066    pretrained
+val_strain_only      0.6968       0.6877       +0.0091    pretrained
+val_chem_only        0.5865       0.5638       +0.0227    pretrained
+val_time             0.6139       0.5948       +0.0190    pretrained
+
+==========================================================================================
+TABLE 5: Conditional Analysis Summary (C+L+R+P model, val set)
+==========================================================================================
+
+  By Strain:
+    Value                          n      RMSE       R²        
+    BAI                            1816   0.8944     0.8956    
+    CEK                            302    0.9595     0.8810    
+    CGD                            297    0.9779     0.8764    
+    DHY210                         314    0.9956     0.8727    
+    BAH                            309    1.0234     0.8653    
+    → Best: BAI (RMSE=0.8944)
+    → Worst: BAH (RMSE=1.0234)
+
+  By Perturbation Time:
+    Value                          n      RMSE       R²        
+    30                             505    0.9175     0.8903    
+    15                             510    0.9263     0.8879    
+    60                             500    0.9303     0.8876    
+    90                             503    0.9317     0.8870    
+    120                            510    0.9343     0.8869    
+    240                            510    0.9608     0.8815    
+    → Best: 30 (RMSE=0.9175)
+    → Worst: 240 (RMSE=0.9608)
+
+  By Temperature:
+    Value                          n      RMSE       R²        
+    30                             1510   0.9288     0.8877    
+    37                             1528   0.9382     0.8860    
+    → Best: 30 (RMSE=0.9288)
+    → Worst: 37 (RMSE=0.9382)
+
+  By Medium:
+    Value                          n      RMSE       R²        
+    YNB+CSM+2% glucose             1519   0.9250     0.8894    
+    YNB+CSM+2% galactose           1519   0.9422     0.8840    
+    → Best: YNB+CSM+2% glucose (RMSE=0.9250)
+    → Worst: YNB+CSM+2% galactose (RMSE=0.9422)
+
+==========================================================================================
+TABLE 6: Module Contribution on val_both (OOD: unseen strain + chemical)
+==========================================================================================
+Model        RMSE(↓)    R²(↑)      MAE(↓)     Pearson(↑)
+----------------------------------------------------
+R            0.8808     0.9002     0.6593     0.9495    
+L+R          0.9437     0.8854     0.7160     0.9411    
+C+L+R        0.9884     0.8743     0.7668     0.9354    
+C+L+R+P      0.9884     0.8743     0.7669     0.9354    
+
+Deltas vs C+L+R+P (positive ΔRMSE = removing module HURTS, i.e. module helps):
+  Remove → R         : ΔRMSE = -0.1076  (module HURTS)
+  Remove → L+R       : ΔRMSE = -0.0447  (module HURTS)
+  Remove → C+L+R     : ΔRMSE = +0.0000  (module HELPS)
+
+==========================================================================================
+TABLE 7: Protein-Level Analysis Summary (C+L+R+P model, val set)
+==========================================================================================
+  Proteins evaluated:  4422
+  Mean per-protein RMSE:    0.8888
+  Median per-protein RMSE:  0.8070
+  Std per-protein RMSE:     0.3789
+  Mean per-protein Pearson: 0.5070
+
+  Top-5 BEST predicted proteins:
+    Protein         RMSE       Pearson   
+    TRP2            0.2796     0.0513    
+    RPT2            0.2806     0.1856    
+    SPF1            0.2874     0.2958    
+    CDC12           0.2931     0.2560    
+    MGR1            0.2944     -0.0253   
+
+  Top-5 WORST predicted proteins:
+    Protein         RMSE       Pearson   
+    RPL31B          3.7559     0.8678    
+    ERR1            3.7384     0.9230    
+    RPS26A          3.4957     0.9392    
+    RPL33A          3.3122     0.9175    
+    DDI2            3.2468     0.9397    

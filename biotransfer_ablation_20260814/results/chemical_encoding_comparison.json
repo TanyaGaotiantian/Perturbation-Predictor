@@ -1,0 +1,121 @@
+{
+  "experiment": "chemical_encoding_comparison",
+  "fixed_variables": {
+    "loss": "MSELoss (masked)",
+    "model": "ChemPredictor (protein_mlp + context_mlp -> decoder)",
+    "latent_dim": 512,
+    "protein_hidden": 2048,
+    "mlp_hidden": 1024,
+    "epochs": 5,
+    "lr": 0.0003,
+    "weight_decay": 0.0001,
+    "batch_size": 64,
+    "mask_prob": 0.15,
+    "seed": 42
+  },
+  "variable": "chemical_encoding (one_hot vs morgan)",
+  "experiment_a_one_hot": {
+    "chem_mode": "one_hot",
+    "context_dim": 52,
+    "num_params": 25832774,
+    "final_rmse": 0.8515994548797607,
+    "final_r2": 0.9058418273925781,
+    "final_pearson": 0.951788604259491,
+    "num_val_samples": 11521736,
+    "num_proteins": 4422,
+    "epochs": 5,
+    "train_time_sec": 144.72,
+    "history": [
+      {
+        "epoch": 1,
+        "train_loss": 224.00303198701593,
+        "val_rmse": 7.414059638977051,
+        "val_r2": -6.136731147766113,
+        "val_pearson": 0.42476290464401245
+      },
+      {
+        "epoch": 2,
+        "train_loss": 13.479419282687608,
+        "val_rmse": 0.9494014978408813,
+        "val_r2": 0.8829727172851562,
+        "val_pearson": 0.9402996301651001
+      },
+      {
+        "epoch": 3,
+        "train_loss": 1.1247822571826238,
+        "val_rmse": 0.9387248754501343,
+        "val_r2": 0.8855900168418884,
+        "val_pearson": 0.9411666989326477
+      },
+      {
+        "epoch": 4,
+        "train_loss": 1.1115270019859396,
+        "val_rmse": 0.9352609515190125,
+        "val_r2": 0.8864328265190125,
+        "val_pearson": 0.9415319561958313
+      },
+      {
+        "epoch": 5,
+        "train_loss": 1.0508233994565985,
+        "val_rmse": 0.8515994548797607,
+        "val_r2": 0.9058418273925781,
+        "val_pearson": 0.951788604259491
+      }
+    ]
+  },
+  "experiment_b_morgan": {
+    "chem_mode": "morgan",
+    "context_dim": 1035,
+    "num_params": 26336070,
+    "final_rmse": 0.8419134020805359,
+    "final_r2": 0.9079715609550476,
+    "final_pearson": 0.953006386756897,
+    "num_val_samples": 11521736,
+    "num_proteins": 4422,
+    "epochs": 5,
+    "train_time_sec": 130.24,
+    "history": [
+      {
+        "epoch": 1,
+        "train_loss": 225.4044552464639,
+        "val_rmse": 7.456071853637695,
+        "val_r2": -6.217842102050781,
+        "val_pearson": 0.4232816696166992
+      },
+      {
+        "epoch": 2,
+        "train_loss": 13.584830653282904,
+        "val_rmse": 0.9454565048217773,
+        "val_r2": 0.8839432597160339,
+        "val_pearson": 0.9405910968780518
+      },
+      {
+        "epoch": 3,
+        "train_loss": 1.1185217512551175,
+        "val_rmse": 0.9408314228057861,
+        "val_r2": 0.8850759863853455,
+        "val_pearson": 0.9408755302429199
+      },
+      {
+        "epoch": 4,
+        "train_loss": 1.1056170854517209,
+        "val_rmse": 0.8868643641471863,
+        "val_r2": 0.8978821635246277,
+        "val_pearson": 0.9477511644363403
+      },
+      {
+        "epoch": 5,
+        "train_loss": 1.0010493231076065,
+        "val_rmse": 0.8419134020805359,
+        "val_r2": 0.9079715609550476,
+        "val_pearson": 0.953006386756897
+      }
+    ]
+  },
+  "morgan_config": {
+    "n_bits": 1024,
+    "radius": 2,
+    "chemicals_with_smiles": 56,
+    "total_chemicals": 57
+  }
+}
