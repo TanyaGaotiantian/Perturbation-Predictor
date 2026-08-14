@@ -1,0 +1,50 @@
+{
+  "status": "ok",
+  "loss_name": "smoothl1",
+  "loss_tag": "SmoothL1(beta=1.5)",
+  "huber_delta": 1.0,
+  "smoothl1_beta": 1.5,
+  "epochs": 3,
+  "batch_size": 64,
+  "lr": 0.0003,
+  "seed": 42,
+  "train_mask_prob": 0.15,
+  "num_proteins": 4422,
+  "num_train": 5920,
+  "num_val": 3038,
+  "filter_missing_rate": 0.8,
+  "model_params": 25611814,
+  "history": {
+    "train_loss": [
+      12.79096903339509,
+      0.9447446926947562,
+      0.3305882481477594
+    ],
+    "val_rmse": [
+      5.425929546356201,
+      0.9504247903823853,
+      0.8728951811790466
+    ],
+    "val_r2": [
+      -2.822394847869873,
+      0.8827203512191772,
+      0.9010738134384155
+    ],
+    "val_pearson": [
+      0.10145820677280426,
+      0.940217137336731,
+      0.9497239589691162
+    ]
+  },
+  "best_val": {
+    "epoch": 3,
+    "rmse": 0.8728951811790466,
+    "r2": 0.9010738134384155,
+    "pearson": 0.9497239589691162,
+    "num_valid": 11521736
+  },
+  "train_time_sec": 119.39,
+  "curve_plot": "J:\\Perturbation-Predictor\\experiments\\exp_001_single_smoothl1_20260814_044450\\run_01_smoothl1_beta_1.5\\training_curve.png",
+  "run_dir": "J:\\Perturbation-Predictor\\experiments\\exp_001_single_smoothl1_20260814_044450\\run_01_smoothl1_beta_1.5",
+  "log_path": "J:\\Perturbation-Predictor\\experiments\\exp_001_single_smoothl1_20260814_044450\\run_01_smoothl1_beta_1.5\\log.txt"
+}

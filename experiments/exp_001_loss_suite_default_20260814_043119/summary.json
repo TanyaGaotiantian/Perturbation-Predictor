@@ -1,0 +1,354 @@
+{
+  "status": "ok",
+  "mode": "suite",
+  "suite": "default",
+  "created_at": "2026-08-14T04:31:19",
+  "device": "cpu",
+  "shared_hparams": {
+    "epochs": 3,
+    "batch_size": 64,
+    "lr": 0.0003,
+    "train_mask_prob": 0.15,
+    "seed": 42,
+    "filter_missing_rate": 0.8,
+    "num_proteins": 4422,
+    "num_strains_vocab": 7,
+    "num_medium_vocab": 3,
+    "num_temp_vocab": 3,
+    "num_chemicals_vocab": 58
+  },
+  "loss_plan": [
+    {
+      "loss_name": "mse"
+    },
+    {
+      "loss_name": "l1"
+    },
+    {
+      "loss_name": "huber",
+      "huber_delta": 1.0
+    },
+    {
+      "loss_name": "huber",
+      "huber_delta": 1.5
+    },
+    {
+      "loss_name": "huber",
+      "huber_delta": 2.0
+    },
+    {
+      "loss_name": "smoothl1",
+      "smoothl1_beta": 1.0
+    }
+  ],
+  "runs": [
+    {
+      "status": "ok",
+      "loss_name": "mse",
+      "loss_tag": "MSE",
+      "huber_delta": 1.0,
+      "smoothl1_beta": 1.0,
+      "epochs": 3,
+      "batch_size": 64,
+      "lr": 0.0003,
+      "seed": 42,
+      "train_mask_prob": 0.15,
+      "num_proteins": 4422,
+      "num_train": 5920,
+      "num_val": 3038,
+      "filter_missing_rate": 0.8,
+      "model_params": 25611814,
+      "history": {
+        "train_loss": [
+          224.5541515555433,
+          12.887466190322753,
+          1.1274395764514964
+        ],
+        "val_rmse": [
+          7.325924396514893,
+          0.9498388767242432,
+          0.939595103263855
+        ],
+        "val_r2": [
+          -5.9680633544921875,
+          0.8828648924827576,
+          0.885377824306488
+        ],
+        "val_pearson": [
+          0.43079039454460144,
+          0.940618634223938,
+          0.941055178642273
+        ]
+      },
+      "best_val": {
+        "epoch": 3,
+        "rmse": 0.939595103263855,
+        "r2": 0.885377824306488,
+        "pearson": 0.941055178642273,
+        "num_valid": 11521736
+      },
+      "train_time_sec": 105.94,
+      "curve_plot": "J:\\Perturbation-Predictor\\experiments\\exp_001_loss_suite_default_20260814_043119\\run_01_mse\\training_curve.png",
+      "run_dir": "J:\\Perturbation-Predictor\\experiments\\exp_001_loss_suite_default_20260814_043119\\run_01_mse",
+      "log_path": "J:\\Perturbation-Predictor\\experiments\\exp_001_loss_suite_default_20260814_043119\\run_01_mse\\log.txt"
+    },
+    {
+      "status": "ok",
+      "loss_name": "l1",
+      "loss_tag": "L1",
+      "huber_delta": 1.0,
+      "smoothl1_beta": 1.0,
+      "epochs": 3,
+      "batch_size": 64,
+      "lr": 0.0003,
+      "seed": 42,
+      "train_mask_prob": 0.15,
+      "num_proteins": 4422,
+      "num_train": 5920,
+      "num_val": 3038,
+      "filter_missing_rate": 0.8,
+      "model_params": 25611814,
+      "history": {
+        "train_loss": [
+          13.538641796317151,
+          1.476177098930523,
+          0.7918251804126206
+        ],
+        "val_rmse": [
+          5.424382209777832,
+          0.9682371020317078,
+          0.8716945052146912
+        ],
+        "val_r2": [
+          -2.8202147483825684,
+          0.8782831430435181,
+          0.9013457298278809
+        ],
+        "val_pearson": [
+          0.09112352877855301,
+          0.9388589859008789,
+          0.9495316743850708
+        ]
+      },
+      "best_val": {
+        "epoch": 3,
+        "rmse": 0.8716945052146912,
+        "r2": 0.9013457298278809,
+        "pearson": 0.9495316743850708,
+        "num_valid": 11521736
+      },
+      "train_time_sec": 111.13,
+      "curve_plot": "J:\\Perturbation-Predictor\\experiments\\exp_001_loss_suite_default_20260814_043119\\run_02_l1\\training_curve.png",
+      "run_dir": "J:\\Perturbation-Predictor\\experiments\\exp_001_loss_suite_default_20260814_043119\\run_02_l1",
+      "log_path": "J:\\Perturbation-Predictor\\experiments\\exp_001_loss_suite_default_20260814_043119\\run_02_l1\\log.txt"
+    },
+    {
+      "status": "ok",
+      "loss_name": "huber",
+      "loss_tag": "Huber(delta=1.0)",
+      "huber_delta": 1.0,
+      "smoothl1_beta": 1.0,
+      "epochs": 3,
+      "batch_size": 64,
+      "lr": 0.0003,
+      "seed": 42,
+      "train_mask_prob": 0.15,
+      "num_proteins": 4422,
+      "num_train": 5920,
+      "num_val": 3038,
+      "filter_missing_rate": 0.8,
+      "model_params": 25611814,
+      "history": {
+        "train_loss": [
+          13.03964590257214,
+          1.0789654690732238,
+          0.42813365882442844
+        ],
+        "val_rmse": [
+          5.424992561340332,
+          0.9582820534706116,
+          0.8668003082275391
+        ],
+        "val_r2": [
+          -2.8210744857788086,
+          0.8807731866836548,
+          0.902450442314148
+        ],
+        "val_pearson": [
+          0.09553541988134384,
+          0.9396629929542542,
+          0.9500014781951904
+        ]
+      },
+      "best_val": {
+        "epoch": 3,
+        "rmse": 0.8668003082275391,
+        "r2": 0.902450442314148,
+        "pearson": 0.9500014781951904,
+        "num_valid": 11521736
+      },
+      "train_time_sec": 105.16,
+      "curve_plot": "J:\\Perturbation-Predictor\\experiments\\exp_001_loss_suite_default_20260814_043119\\run_03_huber_delta_1.0\\training_curve.png",
+      "run_dir": "J:\\Perturbation-Predictor\\experiments\\exp_001_loss_suite_default_20260814_043119\\run_03_huber_delta_1.0",
+      "log_path": "J:\\Perturbation-Predictor\\experiments\\exp_001_loss_suite_default_20260814_043119\\run_03_huber_delta_1.0\\log.txt"
+    },
+    {
+      "status": "ok",
+      "loss_name": "huber",
+      "loss_tag": "Huber(delta=1.5)",
+      "huber_delta": 1.5,
+      "smoothl1_beta": 1.0,
+      "epochs": 3,
+      "batch_size": 64,
+      "lr": 0.0003,
+      "seed": 42,
+      "train_mask_prob": 0.15,
+      "num_proteins": 4422,
+      "num_train": 5920,
+      "num_val": 3038,
+      "filter_missing_rate": 0.8,
+      "model_params": 25611814,
+      "history": {
+        "train_loss": [
+          19.186132400266587,
+          1.4169815477504526,
+          0.49591646015003166
+        ],
+        "val_rmse": [
+          5.425596714019775,
+          0.9504250884056091,
+          0.8733565211296082
+        ],
+        "val_r2": [
+          -2.821925401687622,
+          0.8827202320098877,
+          0.9009692072868347
+        ],
+        "val_pearson": [
+          0.10142955183982849,
+          0.940217137336731,
+          0.9496716260910034
+        ]
+      },
+      "best_val": {
+        "epoch": 3,
+        "rmse": 0.8733565211296082,
+        "r2": 0.9009692072868347,
+        "pearson": 0.9496716260910034,
+        "num_valid": 11521736
+      },
+      "train_time_sec": 107.72,
+      "curve_plot": "J:\\Perturbation-Predictor\\experiments\\exp_001_loss_suite_default_20260814_043119\\run_04_huber_delta_1.5\\training_curve.png",
+      "run_dir": "J:\\Perturbation-Predictor\\experiments\\exp_001_loss_suite_default_20260814_043119\\run_04_huber_delta_1.5",
+      "log_path": "J:\\Perturbation-Predictor\\experiments\\exp_001_loss_suite_default_20260814_043119\\run_04_huber_delta_1.5\\log.txt"
+    },
+    {
+      "status": "ok",
+      "loss_name": "huber",
+      "loss_tag": "Huber(delta=2.0)",
+      "huber_delta": 2.0,
+      "smoothl1_beta": 1.0,
+      "epochs": 3,
+      "batch_size": 64,
+      "lr": 0.0003,
+      "seed": 42,
+      "train_mask_prob": 0.15,
+      "num_proteins": 4422,
+      "num_train": 5920,
+      "num_val": 3038,
+      "filter_missing_rate": 0.8,
+      "model_params": 25611814,
+      "history": {
+        "train_loss": [
+          25.085267148992067,
+          1.6794559901119561,
+          0.5306499763842552
+        ],
+        "val_rmse": [
+          5.427047252655029,
+          0.946022629737854,
+          0.9073513150215149
+        ],
+        "val_r2": [
+          -2.823969602584839,
+          0.8838042616844177,
+          0.8931097388267517
+        ],
+        "val_pearson": [
+          0.11010287702083588,
+          0.9405801296234131,
+          0.9466221332550049
+        ]
+      },
+      "best_val": {
+        "epoch": 3,
+        "rmse": 0.9073513150215149,
+        "r2": 0.8931097388267517,
+        "pearson": 0.9466221332550049,
+        "num_valid": 11521736
+      },
+      "train_time_sec": 108.29,
+      "curve_plot": "J:\\Perturbation-Predictor\\experiments\\exp_001_loss_suite_default_20260814_043119\\run_05_huber_delta_2.0\\training_curve.png",
+      "run_dir": "J:\\Perturbation-Predictor\\experiments\\exp_001_loss_suite_default_20260814_043119\\run_05_huber_delta_2.0",
+      "log_path": "J:\\Perturbation-Predictor\\experiments\\exp_001_loss_suite_default_20260814_043119\\run_05_huber_delta_2.0\\log.txt"
+    },
+    {
+      "status": "ok",
+      "loss_name": "smoothl1",
+      "loss_tag": "SmoothL1(beta=1.0)",
+      "huber_delta": 1.0,
+      "smoothl1_beta": 1.0,
+      "epochs": 3,
+      "batch_size": 64,
+      "lr": 0.0003,
+      "seed": 42,
+      "train_mask_prob": 0.15,
+      "num_proteins": 4422,
+      "num_train": 5920,
+      "num_val": 3038,
+      "filter_missing_rate": 0.8,
+      "model_params": 25611814,
+      "history": {
+        "train_loss": [
+          13.03964590257214,
+          1.0789654690732238,
+          0.42813365882442844
+        ],
+        "val_rmse": [
+          5.424992561340332,
+          0.9582820534706116,
+          0.8668003082275391
+        ],
+        "val_r2": [
+          -2.8210744857788086,
+          0.8807731866836548,
+          0.902450442314148
+        ],
+        "val_pearson": [
+          0.09553541988134384,
+          0.9396629929542542,
+          0.9500014781951904
+        ]
+      },
+      "best_val": {
+        "epoch": 3,
+        "rmse": 0.8668003082275391,
+        "r2": 0.902450442314148,
+        "pearson": 0.9500014781951904,
+        "num_valid": 11521736
+      },
+      "train_time_sec": 108.48,
+      "curve_plot": "J:\\Perturbation-Predictor\\experiments\\exp_001_loss_suite_default_20260814_043119\\run_06_smoothl1_beta_1.0\\training_curve.png",
+      "run_dir": "J:\\Perturbation-Predictor\\experiments\\exp_001_loss_suite_default_20260814_043119\\run_06_smoothl1_beta_1.0",
+      "log_path": "J:\\Perturbation-Predictor\\experiments\\exp_001_loss_suite_default_20260814_043119\\run_06_smoothl1_beta_1.0\\log.txt"
+    }
+  ],
+  "comparison_plot": "J:\\Perturbation-Predictor\\experiments\\exp_001_loss_suite_default_20260814_043119\\loss_comparison.png",
+  "best_run": {
+    "loss_tag": "Huber(delta=1.0)",
+    "rmse": 0.8668003082275391,
+    "r2": 0.902450442314148,
+    "pearson": 0.9500014781951904,
+    "run_dir": "J:\\Perturbation-Predictor\\experiments\\exp_001_loss_suite_default_20260814_043119\\run_03_huber_delta_1.0"
+  }
+}
